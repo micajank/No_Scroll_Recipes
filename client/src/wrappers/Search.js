@@ -7,6 +7,7 @@ export default function Search(props) {
     const [formInput, setFormInput] = useState("");
     
     const handleSubmit = e => {
+        console.log("hello form input" + formInput)
         axios.get(`${process.env.REACT_APP_SERVER_URL}/recipes?tags=${formInput}`)
         .then(response => {
             if (response.data.message) {
@@ -14,6 +15,7 @@ export default function Search(props) {
                 setError(response.data.message);
             } else {
                 console.log(formInput)
+                console.log(response.data)
                 props.setSearchedRecipes(response.data);
             }
         }).catch(err => {

@@ -41,8 +41,8 @@ const recipeSchema = new mongoose.Schema({
         default: Date.now 
     },
     tags: {
-        type: [String],
-        required: true
+        required: true,
+        type: [String]
     }
 })
 

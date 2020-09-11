@@ -33,6 +33,7 @@ export default function Recipes(props) {
     props.searchedRecipes.map((searchedRecipe, j) => (
         <div key={`recipeListItem-${j}`}>
             <Thumbnail recipe={searchedRecipe} />
+            {console.log(searchedRecipe + "🙀")}
         </div>
     ));
 
@@ -48,7 +49,7 @@ export default function Recipes(props) {
 
     return (
         <div>
-          <Link to="/recipes/new" className="white-bg">Add a recipe</Link>
+          <Link className="white-bg" to="/recipes/new">ADD A RECIPE</Link>
           <div className="content">
             {outputList}
           </div>

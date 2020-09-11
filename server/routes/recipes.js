@@ -6,15 +6,15 @@ const cors = require ('cors');
 router.use(cors());
 
 router.get("/", (req, res) => {
+    console.log(req.query.tags + "🙄")
     let searchParams = req.query.tags ? 
     { tags: { $all: req.query.tags.split(',').map(tag=>tag.toLowerCase().trim()) } } : 
     {} 
 
-    //console.log( searchParams )
+    console.log( searchParams + "🥶" )
     db.Recipe.find( searchParams )
     .populate("userId", "name")
     .then(recipes => {
-        //console.log(recipes)
         res.send(recipes)
     }).catch(err=>res.send({ message: "Error in getting all recipes", err }));
 });
@@ -59,8 +59,13 @@ router.post("/", (req, res) => {
         tags: newRecipe.tags
     })
     .then(recipe => {
-        console.log(req.body);
-        res.send(recipe);
+        console.log("Recipe", recipe)
+        db.User.findByIdAndUpdate(recipe.userId,
+            {$addToSet: { userRecipes: recipe._id }},
+            {safe: true}
+        )
+        .then((updated)=>res.send(recipe))
+        .catch(err=>res.send({ message: 'Error in adding userRecipe to user', err}));
     })
     .catch(err=>res.send({ message: 'Error in creating one recipe', err}));
 })

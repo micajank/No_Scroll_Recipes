@@ -59,15 +59,5 @@ router.post("/signup", (req, res) => {
     // res.send("This page is for a user who is signing up");
 });
 
-// router.length("/current/user", (req, res) => {
-//     console.log(req.user);
-    
-//     if (!req.user) {
-//         return res.status(417).send({ message: "Current user not found. Check for error at login/auth routes." });
-//     }
-
-//     req.send({ user: req.user });
-//     // res.send("This route is to check for login errors")
-// });
 
 module.exports = router;
