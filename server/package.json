@@ -20,5 +20,8 @@
     "mongoose": "^5.9.4",
     "morgan": "^1.9.1",
     "rowdy-logger": "^1.0.2"
+  },
+  "engines": {
+    "node": "v13.8.0"
   }
 }

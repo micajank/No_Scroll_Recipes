@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
+require("dotenv").config()
 
 // Connect to Mongo database
 mongoose.connect(
-  process.env.MONGO_URL || 'mongodb://localhost:27017/recipeapp',
-  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
+  process.env.MONGODB_URI || 'mongodb://localhost:27017/recipeapp',
+  { useNewUrlParser: true, 
+    useUnifiedTopology: true, 
+    useCreateIndex: true }
 );
 let db = mongoose.connection;
 db.once('open', () => {
