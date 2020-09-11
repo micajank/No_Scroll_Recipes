@@ -14,6 +14,9 @@ export default function Nav(props) {
     let links = (
         <span>
             <li className="App-nav-link">
+                    <Link to="/authors" className="App-link">Authors</Link>
+                </li>
+            <li className="App-nav-link">
                 <Link to="/auth/login" className="App-link">Login</Link>
             </li>
             <li className="App-nav-link">
@@ -31,6 +34,9 @@ export default function Nav(props) {
               <Link to="/profile" className="App-link">Profile</Link>
             </li>
             <li className="App-nav-link">
+                    <Link to="/authors" className="App-link">Authors</Link>
+                </li>
+            <li className="App-nav-link">
               <Link to="/" onClick={handleLogout} className="App-link">Log out</Link>
             </li>
           </span>
@@ -40,13 +46,13 @@ export default function Nav(props) {
     return(
         <nav>
             <ul className="App-nav">
+                {links}
+                {/* <li className="App-nav-link">
+                    <Link to="/authors" className="App-link">Authors</Link>
+                </li> */}
                 <li className="App-nav-link">
                     <a href="https://github.com/papadavis47/recipe-app-project3" target="_blank" rel="noopener noreferrer" className="App-link">About</a>
                 </li>
-                <li className="App-nav-link">
-                    <Link to="/authors" className="App-link">Authors</Link>
-                </li>
-                {links}
             </ul>
         </nav>
     )
